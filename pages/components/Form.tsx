@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Button from '@mui/material/Button'
-import Box from '@mui/material/Box'
 import axios from 'axios'
-import TextField from '@mui/material/TextField'
+
 
 function Form() {
   const APIKEY =  process.env.NEXT_PUBLIC_WEATHER_KEY
@@ -21,12 +19,15 @@ function Form() {
   console.log(data)
 
   return (
-    <Box component='form' noValidate autoComplete='off' onSubmit={handleSubmit}>
-      <TextField required onChange={(e) => setSearchItem(e.target.value)} />
-      <Button type='submit' variant='contained'>
+    <div >
+      <form action="" onSubmit={handleSubmit}>
+      <input required onChange={(e) => setSearchItem(e.target.value)} />
+      <button type='submit' >
         submit
-      </Button>
-    </Box>
+      </button>
+
+      </form>
+    </div>
   )
 }
 
