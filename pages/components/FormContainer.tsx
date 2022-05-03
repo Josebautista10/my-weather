@@ -1,12 +1,14 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import Form from './Form'
+import WeatherDetails from './WeatherDetails'
 
 function FormContainer() {
   const APIKEY = process.env.NEXT_PUBLIC_WEATHER_KEY
   const [searchItem, setSearchItem] = useState('')
   const [data, setData] = useState({})
   const [loaded, setLoaded] = useState(false)
+  const [status, setStatus] = useState(0)
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     // Preventing the page from reloading
@@ -18,7 +20,8 @@ function FormContainer() {
       .then((res) => {
         setData(res.data)
         setLoaded(true)
-      }).catch((error) => console.log(error))
+        setStatus(200)
+      }).catch((error) => setStatus(error.response.status))
   }
   console.log(data)
 
@@ -39,13 +42,9 @@ function FormContainer() {
             <button type='submit'>submit</button>
           </form>
         </div>
-        <div className="flex flex-col">
-          <div className='flex'>
-          <h1>{loaded && data.current.temp_c}</h1>
-          <p>{loaded && data.current.condition.text} <img src={loaded && data.current.condition.icon} className=''></img></p>
-          </div>
-          <h2>{loaded && data.location.name}, {loaded && data.location.country}</h2>
-        </div>
+        
+        {loaded && <WeatherDetails details={data}/>  }
+        {status === 400 &&  <p>Please check your spelling or try again</p>}
       </div>
     </div>
   )
