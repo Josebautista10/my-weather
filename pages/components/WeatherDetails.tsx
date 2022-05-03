@@ -7,9 +7,9 @@ function WeatherDetails(props: any) {
   return (
     <div className='flex flex-col'>
       <div className='flex'>
-        <h1>{current.temp_c}</h1>
+        <h1></h1>
         <p>
-          {current.condition.text}{' '}
+          {current.temp_c} {current.condition.text}
           <img src={current.condition.icon} className=''></img>
         </p>
       </div>
