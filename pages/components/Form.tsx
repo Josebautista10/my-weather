@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Button from '@mui/material/Button'
-import Box from '@mui/material/Box'
 import axios from 'axios'
-import TextField from '@mui/material/TextField'
 
 function Form() {
-  const APIKEY =  process.env.NEXT_PUBLIC_WEATHER_KEY
+  const APIKEY = process.env.NEXT_PUBLIC_WEATHER_KEY
   const [searchItem, setSearchItem] = useState('')
   const [data, setData] = useState({})
 
@@ -21,12 +18,12 @@ function Form() {
   console.log(data)
 
   return (
-    <Box component='form' noValidate autoComplete='off' onSubmit={handleSubmit}>
-      <TextField required onChange={(e) => setSearchItem(e.target.value)} />
-      <Button type='submit' variant='contained'>
-        submit
-      </Button>
-    </Box>
+
+        <form className='w-2/5 justify-center flex-col align-center flex bg-red-500' onSubmit={handleSubmit}>
+          <input required onChange={(e) => setSearchItem(e.target.value)} placeholder="My City"/>
+          <button type='submit'>submit</button>
+        </form>
+
   )
 }
 
