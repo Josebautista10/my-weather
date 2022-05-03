@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-
 function Form() {
-  const APIKEY =  process.env.NEXT_PUBLIC_WEATHER_KEY
+  const APIKEY = process.env.NEXT_PUBLIC_WEATHER_KEY
   const [searchItem, setSearchItem] = useState('')
   const [data, setData] = useState({})
 
@@ -19,15 +18,12 @@ function Form() {
   console.log(data)
 
   return (
-    <div >
-      <form action="" onSubmit={handleSubmit}>
-      <input required onChange={(e) => setSearchItem(e.target.value)} />
-      <button type='submit' >
-        submit
-      </button>
 
-      </form>
-    </div>
+        <form className='w-2/5 justify-center flex-col align-center flex bg-red-500' onSubmit={handleSubmit}>
+          <input required onChange={(e) => setSearchItem(e.target.value)} placeholder="My City"/>
+          <button type='submit'>submit</button>
+        </form>
+
   )
 }
 
