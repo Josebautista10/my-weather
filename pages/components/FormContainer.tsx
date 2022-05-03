@@ -21,31 +21,36 @@ function FormContainer() {
         setData(res.data)
         setLoaded(true)
         setStatus(200)
-      }).catch((error) => setStatus(error.response.status))
+      })
+      .catch((error) => setStatus(error.response.status))
   }
   console.log(data)
 
   return (
-    <div className=' flex w-4/5 justify-center bg-blue-500'>
-      <div className='flex justify-center flex-col w-full justify-center'>
-        <h2>Search for any city:</h2>
-        <div className='flex justify-center'>
-          <form
-            className='w-2/5 justify-center flex-col align-center flex bg-red-500'
-            onSubmit={handleSubmit}
-          >
-            <input
-              required
-              onChange={(e) => setSearchItem(e.target.value)}
-              placeholder='My City'
-            />
-            <button type='submit'>submit</button>
-          </form>
+    <div className=' flex  justify-center bg-blue-500'>
+      {!loaded ? (
+        <div className='flex justify-center flex-col w-full justify-center'>
+          <div className='flex justify-center'>
+            <form
+              className='w-2/5 justify-center flex-col align-center flex bg-red-500'
+              onSubmit={handleSubmit}
+            >
+              <label>Search for any city:</label>
+              <input
+                required
+                onChange={(e) => setSearchItem(e.target.value)}
+                placeholder='My City'
+              />
+              <button type='submit'>submit</button>
+            </form>
+          </div>
+          {status === 400 && <p>Please check your spelling or try again</p>}
         </div>
-        
-        {loaded && <WeatherDetails details={data}/>  }
-        {status === 400 &&  <p>Please check your spelling or try again</p>}
-      </div>
+      ) : (
+        <div className='details'>
+          {loaded && <WeatherDetails details={data} />}
+        </div>
+      )}
     </div>
   )
 }
