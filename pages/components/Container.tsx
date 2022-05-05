@@ -49,7 +49,7 @@ function FormContainer() {
                 </div>
               </form>
             </div>
-            {status === 400 && <p>Please check your spelling or try again</p>}
+            {status === 400 && <p>Error occurred please try again.</p>}
           </div>
         ) : (
           <div className='details'>
