@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import Form from './Form'
 import WeatherDetails from './WeatherDetails'
+import { FiSearch } from 'react-icons/Fi'
 
 function FormContainer() {
   const APIKEY = process.env.NEXT_PUBLIC_WEATHER_KEY
@@ -27,25 +28,26 @@ function FormContainer() {
   console.log(data)
 
   return (
-    <div className=' flex justify-center items-center bg-blue-500 h-screen'>
-      <div className=' w-2/4 h-1/2 bg-green-500 rounded-3xl'>
+    <div className=' flex justify-center items-center bg-slate-100 h-screen/9'>
+      <div className=' w-2/4 h-1/2 bg-yellow-400 rounded-3xl'>
         {!loaded ? (
           <div className='flex justify-center flex-col w-full justify-center h-3/4'>
             <div className='flex justify-center flex-col'>
-            <label className=' text-2xl mb-2'>Search for any city:</label>
+              <label className='text-2xl ml-6'>Search for any city:</label>
               <form
-                className=' h-1/2 justify-center flex-col align-center flex bg-red-500 p-6'
+                className=' h-1/2 justify-center flex-col align-center flex p-6'
                 onSubmit={handleSubmit}
               >
-                
                 <div className='flex '>
                   <input
                     required
                     onChange={(e) => setSearchItem(e.target.value)}
                     placeholder='My City'
-                    className='w-5/6 mr-3'
+                    className='w-5/6 mr-3 p-1 rounded-md'
                   />
-                  <button type='submit'>submit</button>
+                  <button type='submit'>
+                    <FiSearch className='xs:text-lg  sm:text-xl  md:text-2xl lg:text-3xl text-white' />
+                  </button>
                 </div>
               </form>
             </div>

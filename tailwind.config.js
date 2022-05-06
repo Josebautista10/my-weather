@@ -18,7 +18,10 @@ module.exports = {
       screens: {
         '2xsm': '375px',
         xsm: '500px'
-      }
+      },
+      height: {
+        "screen/9": "90vh",
+      },
     }
   },
   variants: {
