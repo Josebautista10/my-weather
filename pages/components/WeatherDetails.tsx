@@ -5,17 +5,26 @@ function WeatherDetails(props: any) {
   const { current, location } = props.details
   console.log(current)
   return (
-    <div className='flex flex-col items-center h-full'>
-      <div className='flex '>
-        <h1></h1>
-        <p>
-          {props.tempUnit ? `${current.temp_c}°C` : `${Math.floor(current.temp_f)}°F`} {current.condition.text}
-          <img src={current.condition.icon} className=''></img>
+    <div className='flex  items-center flex-start'>
+      <div className='flex flex-col w-1/2'>
+        <div className='flex items-center '>
+          <img src={current.condition.icon} className='w-3/20'></img>
+          <p className='xs:text-lg  sm:text-xl  md:text-2xl lg:text-3xl'>
+            {props.tempUnit
+              ? `${current.temp_c}°C`
+              : `${Math.floor(current.temp_f)}°F`}
+          </p>
+        </div>
+        <p className='ml-6 xs:text-sm  sm:text-md  md:text-lg lg:text-xl'>
+          {current.condition.text}
         </p>
       </div>
-      <h2>
+      <div className='flex w-1/2 justify-end mr-2'>
+        <p>
         {location.name}, {location.country}
-      </h2>
+        </p>
+      </div>
+      <h2></h2>
     </div>
   )
 }

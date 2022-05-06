@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Form from './Form'
 import WeatherDetails from './WeatherDetails'
 import { FiSearch } from 'react-icons/Fi'
+import { TiWeatherCloudy } from 'react-icons/Ti'
 
 function FormContainer() {
   const APIKEY = process.env.NEXT_PUBLIC_WEATHER_KEY
@@ -17,7 +18,7 @@ function FormContainer() {
     event.preventDefault()
     axios
       .get(
-        `http://api.weatherapi.com/v1/current.json?key=${APIKEY}&q=${searchItem}&aqi=no`
+        `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${searchItem}&days=7&aqi=no&alerts=no`
       )
       .then((res) => {
         setData(res.data)
@@ -26,14 +27,20 @@ function FormContainer() {
       })
       .catch((error) => setStatus(error.response.status))
   }
-
+  http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${searchItem}&days=7&aqi=no&alerts=no
   console.log(data)
 
   return (
     <div className=' flex justify-center items-center bg-slate-100 h-screen/9'>
       <div className=' w-2/4 h-1/2 bg-yellow-400 rounded-3xl'>
-        <div className='flex justify-end mr-5 mt-5'>
-          <button onClick={() => setTemptUnit(!tempUnit)}>Change to {tempUnit ? 'Fahrenheit': 'Celsius'}</button>
+        <div className='flex justify-end mr-5 mt-5 '>
+          {loaded && <button
+            className='flex items-center hover:text-blue-400 transition duration-500'
+            onClick={() => setTemptUnit(!tempUnit)}
+          >
+            <TiWeatherCloudy className='xs:text-md  sm:text-lg  md:text-xl lg:text-2xl ' />
+            {tempUnit ? '°F' : '°C'}
+          </button>}
         </div>
         <div className='flex justify-center flex-col w-full justify-center h-2/5'>
           <div className='flex justify-center flex-col'>
@@ -58,8 +65,13 @@ function FormContainer() {
           {status === 400 && <p>Error occurred please try again.</p>}
         </div>
 
-        <div className='details h-full'>
-          {loaded && <WeatherDetails details={data} tempUnit={tempUnit} className='h-full' />}
+        <div className='details '>
+          {loaded && (
+            <WeatherDetails
+              details={data}
+              tempUnit={tempUnit}
+            />
+          )}
         </div>
       </div>
     </div>

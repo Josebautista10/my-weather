@@ -22,6 +22,9 @@ module.exports = {
       height: {
         "screen/9": "90vh",
       },
+      width: {
+        '3/20':"15%"
+      }
     }
   },
   variants: {
