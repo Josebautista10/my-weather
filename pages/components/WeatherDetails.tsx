@@ -9,7 +9,7 @@ function WeatherDetails(props: any) {
       <div className='flex '>
         <h1></h1>
         <p>
-          {current.temp_c}°C {current.condition.text}
+          {props.tempUnit ? `${current.temp_c}°C` : `${Math.floor(current.temp_f)}°F`} {current.condition.text}
           <img src={current.condition.icon} className=''></img>
         </p>
       </div>

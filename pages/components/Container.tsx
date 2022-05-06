@@ -10,6 +10,7 @@ function FormContainer() {
   const [data, setData] = useState({})
   const [loaded, setLoaded] = useState(false)
   const [status, setStatus] = useState(0)
+  const [tempUnit, setTemptUnit] = useState(true)
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     // Preventing the page from reloading
@@ -31,7 +32,10 @@ function FormContainer() {
   return (
     <div className=' flex justify-center items-center bg-slate-100 h-screen/9'>
       <div className=' w-2/4 h-1/2 bg-yellow-400 rounded-3xl'>
-        <div className='flex justify-center flex-col w-full justify-center h-1/2'>
+        <div className='flex justify-end mr-5 mt-5'>
+          <button onClick={() => setTemptUnit(!tempUnit)}>Change to {tempUnit ? 'Fahrenheit': 'Celsius'}</button>
+        </div>
+        <div className='flex justify-center flex-col w-full justify-center h-2/5'>
           <div className='flex justify-center flex-col'>
             <label className='text-2xl ml-6'>Search for any city:</label>
             <form
@@ -55,7 +59,7 @@ function FormContainer() {
         </div>
 
         <div className='details h-full'>
-          {loaded && <WeatherDetails details={data} className='h-full' />}
+          {loaded && <WeatherDetails details={data} tempUnit={tempUnit} className='h-full' />}
         </div>
       </div>
     </div>
