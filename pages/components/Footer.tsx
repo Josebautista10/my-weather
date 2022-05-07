@@ -4,7 +4,7 @@ import { MdEmail } from 'react-icons/md'
 
 function Footer() {
   return (
-    <div className='w-full flex justify-between bg-yellow-400 fixed bottom-0 w-full p-1'>
+    <div className='w-full flex justify-between bg-yellow-400 fixed bottom-0 w-full p-2'>
       <p>Created by: Jose B</p>{' '}
       <div className='flex justify-around  2xsm:w-5/12  xsm:w-3/12 sm:w-3/12 md:w-3/12 lg:w-2/12'>
         <a
