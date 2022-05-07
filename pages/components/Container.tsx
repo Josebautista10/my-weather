@@ -32,16 +32,18 @@ function FormContainer() {
   return (
     <div className=' flex justify-center items-center bg-slate-100 h-screen/9'>
       <div className=' w-2/4 h-1/2 bg-yellow-400 rounded-3xl'>
-        <div className='flex justify-end mr-5 mt-5 '>
-          {loaded && <button
-            className='flex items-center hover:text-blue-400 transition duration-500'
-            onClick={() => setTemptUnit(!tempUnit)}
-          >
-            <TiWeatherCloudy className='xs:text-md  sm:text-lg  md:text-xl lg:text-2xl ' />
-            {tempUnit ? '°F' : '°C'}
-          </button>}
+        <div className='flex justify-end mr-5 mt-2 '>
+          {loaded && (
+            <button
+              className='flex items-center hover:text-blue-400 transition duration-500'
+              onClick={() => setTemptUnit(!tempUnit)}
+            >
+              <TiWeatherCloudy className='xs:text-md  sm:text-lg  md:text-xl lg:text-2xl ' />
+              {tempUnit ? '°F' : '°C'}
+            </button>
+          )}
         </div>
-        <div className='flex justify-center flex-col w-full justify-center h-2/5'>
+        <div className='flex  flex-col w-full  h-1/4'>
           <div className='flex justify-center flex-col'>
             <label className='text-2xl ml-6'>Search for any city:</label>
             <form
@@ -53,10 +55,10 @@ function FormContainer() {
                   required
                   onChange={(e) => setSearchItem(e.target.value)}
                   placeholder='My City'
-                  className='w-5/6 mr-3 p-1 rounded-md'
+                  className='w-9/10 mr-3 p-2 rounded-xl'
                 />
                 <button type='submit'>
-                  <FiSearch className='xs:text-lg  sm:text-xl  md:text-2xl lg:text-3xl text-white' />
+                  <FiSearch className='xs:text-lg  sm:text-xl  md:text-2xl lg:text-3xl text-white hover:text-blue-400 transition duration-500' />
                 </button>
               </div>
             </form>
@@ -64,14 +66,7 @@ function FormContainer() {
           {status === 400 && <p>Error occurred please try again.</p>}
         </div>
 
-        <div className='details '>
-          {loaded && (
-            <WeatherDetails
-              details={data}
-              tempUnit={tempUnit}
-            />
-          )}
-        </div>
+        {loaded && <WeatherDetails details={data} tempUnit={tempUnit} />}
       </div>
     </div>
   )
