@@ -27,7 +27,6 @@ function FormContainer() {
       })
       .catch((error) => setStatus(error.response.status))
   }
-  http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${searchItem}&days=7&aqi=no&alerts=no
   console.log(data)
 
   return (

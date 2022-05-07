@@ -3,6 +3,11 @@ import React from 'react'
 function WeatherDetails(props: any) {
   console.log(props)
   const { current, location } = props.details
+
+  const currentDate = new Date(Date.now());
+  const day = currentDate.getDate()
+  const month = currentDate.toLocaleString('en-US', { month: 'long' });
+  const year = currentDate.getFullYear()
   console.log(current)
   return (
     <div className='flex  items-center flex-start'>
@@ -20,9 +25,14 @@ function WeatherDetails(props: any) {
         </p>
       </div>
       <div className='flex w-1/2 justify-end mr-2'>
-        <p>
-        {location.name}, {location.country}
-        </p>
+        <ul>
+          <li>
+            {location.name}, {location.country}
+          </li>
+          <li>
+          {month} {day}, {year}
+          </li>
+        </ul>
       </div>
       <h2></h2>
     </div>
