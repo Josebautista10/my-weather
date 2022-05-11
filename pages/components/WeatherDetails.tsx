@@ -1,14 +1,12 @@
 import React from 'react'
 
 function WeatherDetails(props: any) {
-  console.log(props)
   const { current, location } = props.details
 
   const currentDate = new Date(Date.now())
   const day = currentDate.getDate()
   const month = currentDate.toLocaleString('en-US', { month: 'long' })
   const year = currentDate.getFullYear()
-  console.log(current)
   return (
     <div className='flex items-center flex-start mt-5'>
       <div className='flex flex-col w-1/2'>
@@ -28,6 +26,7 @@ function WeatherDetails(props: any) {
               ? `${Math.floor(current.feelslike_c)}°C`
               : `${Math.floor(current.feelslike_f)}°F`}
           </li>
+          <li>Wind Speed: {Math.floor(current.wind_kph)}km/hr</li>
         </ul>
         <p className='ml-6 xs:text-sm  sm:text-md  md:text-lg lg:text-xl'></p>
       </div>
@@ -42,7 +41,6 @@ function WeatherDetails(props: any) {
           <li>{current.condition.text}</li>
         </ul>
       </div>
-      <h2></h2>
     </div>
   )
 }
