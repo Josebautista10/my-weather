@@ -5,13 +5,9 @@ import {getMonthName} from '../../utils/getMonthName'
 function Forecast(props: any) {
   const { forecastday } = props.data.forecast
   const { tempUnit } = props
-  console.log('forecast', forecastday)
   const forecastReport = forecastday.map((date: any) => {
 
     const dateObj = getMonthName(date.date)
-    console.log('dateobj',dateObj)
-    // console.log(monthName)
-    // console.log('hello', splitDate)
     return (
       <ul key={date.date} className='flex items-center flex-col text-md '>
         
