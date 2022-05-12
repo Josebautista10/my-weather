@@ -8,7 +8,7 @@ function WeatherDetails(props: any) {
   const month = currentDate.toLocaleString('en-US', { month: 'long' })
   const year = currentDate.getFullYear()
   return (
-    <div className='flex items-center flex-start mt-5'>
+    <div className='flex items-center flex-start ml-6 mr-6 mt-5'>
       <div className='flex flex-col w-1/2'>
         <div className='flex items-center '>
           <img src={current.condition.icon} className='w-3/20'></img>

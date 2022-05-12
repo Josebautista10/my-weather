@@ -44,14 +44,14 @@ function FormContainer() {
             </button>
           )}
         </div>
-        <div className='flex  flex-col w-full  h-1/4'>
+        <div className='flex  flex-col w-full  h-1/5'>
           <div className='flex justify-center flex-col'>
-            <label className='text-2xl ml-6'>Search for any city:</label>
             <form
               className=' h-1/2 justify-center flex-col align-center flex p-6'
               onSubmit={handleSubmit}
             >
-              <div className='flex '>
+                <label className='text-2xl ml-4 mb-1'>Search for any city:</label>
+              <div className='flex justify-center'>
                 <input
                   required
                   onChange={(e) => setSearchItem(e.target.value)}
