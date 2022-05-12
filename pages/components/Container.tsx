@@ -67,7 +67,7 @@ function FormContainer() {
           {status === 400 && <p>Error occurred please try again.</p>}
         </div>
 
-        {loaded && <><WeatherDetails details={data} tempUnit={tempUnit} /><Forecast data={data}/></>}
+        {loaded && <><WeatherDetails details={data} tempUnit={tempUnit} /><Forecast data={data} tempUnit={tempUnit}/></>}
       </div>
     </div>
   )
