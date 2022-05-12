@@ -1,14 +1,16 @@
 import React from 'react'
+import {getMonthName} from '../../utils/getMonthName'
+
 
 function WeatherDetails(props: any) {
   const { current, location } = props.details
-
-  const currentDate = new Date(Date.now())
-  const day = currentDate.getDate()
-  const month = currentDate.toLocaleString('en-US', { month: 'long' })
-  const year = currentDate.getFullYear()
+  const {forecastday} = props.details.forecast
+  console.log(forecastday)
+  const {date} = forecastday[0]
+  console.log(date)
+  const dateObj = getMonthName(date)
   return (
-    <div className='flex items-center flex-start mt-5'>
+    <div className='flex items-center flex-start ml-6 mr-6 mt-5'>
       <div className='flex flex-col w-1/2'>
         <div className='flex items-center '>
           <img src={current.condition.icon} className='w-3/20'></img>
@@ -36,7 +38,7 @@ function WeatherDetails(props: any) {
             {location.name}, {location.country}
           </li>
           <li>
-            {month} {day}, {year}
+            {dateObj.monthName} {dateObj.day}, {dateObj.year}
           </li>
           <li>{current.condition.text}</li>
         </ul>
