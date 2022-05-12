@@ -7,15 +7,15 @@ function Forecast(props: any) {
   console.log('forecast', forecastday)
   const forecastReport = forecastday.map((day: any) => {
     return (
-      <ul key={day.date} className='flex items-center flex-col'>
+      <ul key={day.date} className='flex items-center flex-col text-md'>
         <li>{day.date}</li>
         <li>{day.day.condition.text}</li>
         <li>
           <img src={day.day.condition.icon} />
         </li>
         {/* tempUnit ? '°F' : '°C' */}
-        <li>{tempUnit ? `${Math.floor(day.day.maxtemp_c)}°C` : `${Math.floor(day.day.maxtemp_f)}°f`}</li>
-        <li>Avg Humidity: {day.day.avghumidity}%</li>
+        <li>Avg Temp: {tempUnit ? `${Math.floor(day.day.maxtemp_c)}°C` : `${Math.floor(day.day.maxtemp_f)}°f`}</li>
+        <li>Humidity: {day.day.avghumidity}%</li>
       </ul>
     )
   })

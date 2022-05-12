@@ -32,7 +32,7 @@ function FormContainer() {
 
   return (
     <div className=' flex justify-center items-center bg-slate-100 h-screen/9'>
-      <div className=' w-2/4 h-3/5 bg-yellow-400 rounded-3xl'>
+      <div className=' w-3/4 h-4/5 bg-yellow-400 rounded-3xl'>
         <div className='flex justify-end mr-5 mt-2 '>
           {loaded && (
             <button
