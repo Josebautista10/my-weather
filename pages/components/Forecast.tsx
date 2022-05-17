@@ -8,13 +8,12 @@ function Forecast(props: any) {
   const forecastReport = forecastday.map((date: any) => {
     const dateObj = getMonthName(date.date)
     return (
-      <div className='bg-blue-200 p-8 rounded-xl'>
-        <ul key={date.date} className='flex items-center flex-col text-md '>
-          {dateObj.hasOwnProperty('monthName') && (
-            <li>
-              {dateObj.monthName} {dateObj.day}, {dateObj.year}
-            </li>
-          )}
+      <div className='bg-blue-200 p-8 rounded-xl' key={date.date}>
+        <ul className='flex items-center flex-col text-md '>
+          <li className='font-semibold'>
+            {dateObj.monthName} {dateObj.day}, {dateObj.year}
+          </li>
+
           <li>{date.day.condition.text}</li>
           <li>
             <img src={date.day.condition.icon} />
