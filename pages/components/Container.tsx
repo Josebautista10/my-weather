@@ -6,7 +6,7 @@ import { FiSearch } from 'react-icons/Fi'
 import { TiWeatherCloudy } from 'react-icons/Ti'
 import Forecast from './Forecast'
 
-function FormContainer() {
+function Container() {
   const APIKEY = process.env.NEXT_PUBLIC_WEATHER_KEY
   const [searchItem, setSearchItem] = useState('')
   const [data, setData] = useState({})
@@ -73,4 +73,4 @@ function FormContainer() {
   )
 }
 
-export default FormContainer
+export default Container
