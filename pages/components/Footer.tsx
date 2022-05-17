@@ -18,7 +18,7 @@ function Footer() {
         <a
           href={'https://github.com/Josebautista10'}
           className={
-            'flex justify-center text-white hover:text-yellow-200 transition duration-500 xs:text-lg  sm:text-xl  md:text-2xl lg:text-3xl'
+            'flex justify-center text-white hover:text-black transition duration-500 xs:text-lg  sm:text-xl  md:text-2xl lg:text-3xl'
           }
         >
           {<SiGithub></SiGithub>}
@@ -26,7 +26,7 @@ function Footer() {
         <a
           href={'mailto:cooldj1020@gmail.com'}
           className={
-            'flex justify-center text-white hover:text-red-300 transition duration-500 xs:text-lg  sm:text-xl  md:text-2xl lg:text-3xl'
+            'flex justify-center text-white hover:text-red-400 transition duration-500 xs:text-lg  sm:text-xl  md:text-2xl lg:text-3xl'
           }
         >
           {<MdEmail />}

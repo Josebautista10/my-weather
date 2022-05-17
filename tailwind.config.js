@@ -25,12 +25,16 @@ module.exports = {
       },
       width: {
         '3/20':"15%",
-        '9/10':"90%"
+        '9/10':"90%",
+        '8/10':"80%"
       }
     }
   },
   variants: {
     extend: {}
   },
-  plugins: []
+  content: ['./src/**/*.{html,js}', './node_modules/tw-elements/dist/js/**/*.js'],
+  plugins: [
+    require('tw-elements/dist/plugin')
+  ]
 };

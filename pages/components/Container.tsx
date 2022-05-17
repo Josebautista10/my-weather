@@ -6,7 +6,7 @@ import { FiSearch } from 'react-icons/Fi'
 import { TiWeatherCloudy } from 'react-icons/Ti'
 import Forecast from './Forecast'
 
-function FormContainer() {
+function Container() {
   const APIKEY = process.env.NEXT_PUBLIC_WEATHER_KEY
   const [searchItem, setSearchItem] = useState('')
   const [data, setData] = useState({})
@@ -45,12 +45,12 @@ function FormContainer() {
           )}
         </div>
         <div className='flex  flex-col w-full  h-1/5'>
-          <div className='flex justify-center flex-col'>
+          <div className='flex justify-center items-center flex-col'>
             <form
-              className=' h-1/2 justify-center flex-col align-center flex p-6'
+              className=' h-1/2 justify-center flex-col align-center flex p-6 w-9/10'
               onSubmit={handleSubmit}
             >
-                <label className='text-2xl ml-4 mb-1'>Search for any city:</label>
+              <label className='text-2xl ml-4 mb-1'>Search for any city:</label>
               <div className='flex justify-center'>
                 <input
                   required
@@ -63,14 +63,47 @@ function FormContainer() {
                 </button>
               </div>
             </form>
+          {status === 400 && (
+            <div
+              className=' flex justify-center bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-1 w-4/6'
+              role='alert'
+            >
+              Error occurred please try again.
+            </div>
+          )}
           </div>
-          {status === 400 && <p>Error occurred please try again.</p>}
+        
         </div>
+        {loaded ? (
+          <>
+            <WeatherDetails details={data} tempUnit={tempUnit} />
+            <Forecast data={data} tempUnit={tempUnit} />
+          </>
+        ) : <div className='flex justify-center flex-col  items-center mt-4'>
+        <h1 className='xs:text-lg  sm:text-xl  md:text-2xl lg:text-3xl'>
+          Welcome to My Weather
+        </h1>
 
-        {loaded && <><WeatherDetails details={data} tempUnit={tempUnit} /><Forecast data={data} tempUnit={tempUnit}/></>}
+        <p className='w-4/6 mt-2 xs:text-md  sm:text-lg  md:text-xl lg:text-2xl'>
+          This is a tiny weather app that lets you search any city in the
+          world and it'll show you the current temperature along with a three
+          day forecast.
+        </p>
+        <a
+          href=''
+          className=' mt-5 xs:text-sm  sm:text-md  md:text-lg lg:text-xl hover:text-blue-400 transition duration-500'
+        >
+          View source code {'</>'}{' '}
+        </a>
+        <div className='flex justify-around w-1/2 '>
+          <img src='http://cdn.weatherapi.com/weather/64x64/night/302.png'></img>
+          <img src='	http://cdn.weatherapi.com/weather/64x64/day/116.png'></img>
+          <img src='		http://cdn.weatherapi.com/weather/64x64/day/113.png'></img>
+        </div>
+      </div>}
       </div>
     </div>
   )
 }
 
-export default FormContainer
+export default Container
