@@ -28,13 +28,13 @@ function WeatherDetails(props: any) {
               ? `${Math.floor(current.feelslike_c)}°C`
               : `${Math.floor(current.feelslike_f)}°F`}
           </li>
-          <li>Wind Speed: {Math.floor(current.wind_kph)}km/hr</li>
+          <li>Wind Speed: {Math.floor(current.wind_kph)}km/h</li>
         </ul>
         <p className='ml-6 xs:text-sm  sm:text-md  md:text-lg lg:text-xl'></p>
       </div>
       <div className='flex w-1/2 justify-end mr-2'>
         <ul className='flex items-end flex-col'>
-          <li>
+          <li className='font-bold'>
             {location.name}, {location.country}
           </li>
           <li>

@@ -3,6 +3,7 @@ import { getMonthName } from '../../utils/getMonthName'
 
 // -----remember to make interface for the props------
 function Forecast(props: any) {
+  console.log(props)
   const { forecastday } = props.data.forecast
   const { tempUnit } = props
   const forecastReport = forecastday.map((date: any) => {
