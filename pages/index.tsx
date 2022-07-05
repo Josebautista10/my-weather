@@ -5,12 +5,12 @@ import Nav from './components/Nav'
 
 // eslint-disable-next-line react/function-component-definition
 const Home: NextPage = () => (
-    <>
-      <Nav />
-      <FormContainer />
-      {/* <Form /> */}
-      <Footer />
-    </>
-  )
+  <>
+    <Nav />
+    <FormContainer />
+    {/* <Form /> */}
+    <Footer />
+  </>
+)
 
 export default Home
