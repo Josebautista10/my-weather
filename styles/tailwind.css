@@ -2,7 +2,9 @@
 @tailwind components;
 @font-face {
   font-family: 'Poppins';
-  src: local('Poppins'), url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap') format('ttf');
+  src: local('Poppins'),
+    url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap')
+      format('ttf');
 }
 
 @tailwind utilities;

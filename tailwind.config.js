@@ -20,21 +20,23 @@ module.exports = {
         xsm: '500px'
       },
       height: {
-        "screen/9": "90vh",
-        "4/10": "40%"
+        'screen/9': '90vh',
+        '4/10': '40%'
       },
       width: {
-        '3/20':"15%",
-        '9/10':"90%",
-        '8/10':"80%"
+        '3/20': '15%',
+        '9/10': '90%',
+        '8/10': '80%'
       }
     }
   },
   variants: {
     extend: {}
   },
-  content: ['./src/**/*.{html,js}', './node_modules/tw-elements/dist/js/**/*.js'],
-  plugins: [
-    require('tw-elements/dist/plugin')
-  ]
-};
+  content: [
+    './src/**/*.{html,js}',
+    './node_modules/tw-elements/dist/js/**/*.js'
+  ],
+  // eslint-disable-next-line global-require
+  plugins: [require('tw-elements/dist/plugin')]
+}

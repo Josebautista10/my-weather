@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Nav />
-      <FormContainer/>
+      <FormContainer />
       {/* <Form /> */}
       <Footer />
     </>
