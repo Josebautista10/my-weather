@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Runs linting over the changes introduced during this commit
+#  - eslint is the javascript linter
+
+git diff --name-only --cached --diff-filter=ACMRTB | grep '.tsx$' | (grep . || echo ./pages/index.tsx) | xargs ./node_modules/.bin/eslint --ignore-path .gitignore --fix
+git diff --name-only --cached --diff-filter=ACMRTB | grep '.tsx$' | (grep . || echo ./pages/index.tsx) | xargs ./node_modules/.bin/prettier --ignore-path .gitignore  --write

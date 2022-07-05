@@ -18,12 +18,17 @@ function Form() {
   console.log(data)
 
   return (
-
-        <form className='w-2/5 justify-center flex-col align-center flex bg-red-500' onSubmit={handleSubmit}>
-          <input required onChange={(e) => setSearchItem(e.target.value)} placeholder="My City"/>
-          <button type='submit'>submit</button>
-        </form>
-
+    <form
+      className='w-2/5 justify-center flex-col align-center flex bg-red-500'
+      onSubmit={handleSubmit}
+    >
+      <input
+        required
+        onChange={(e) => setSearchItem(e.target.value)}
+        placeholder='My City'
+      />
+      <button type='submit'>submit</button>
+    </form>
   )
 }
 

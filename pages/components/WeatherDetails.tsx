@@ -1,12 +1,11 @@
 import React from 'react'
-import {getMonthName} from '../../utils/getMonthName'
-
+import { getMonthName } from '../../utils/getMonthName'
 
 function WeatherDetails(props: any) {
   const { current, location } = props.details
-  const {forecastday} = props.details.forecast
+  const { forecastday } = props.details.forecast
   console.log(forecastday)
-  const {date} = forecastday[0]
+  const { date } = forecastday[0]
   console.log(date)
   const dateObj = getMonthName(date)
   return (
