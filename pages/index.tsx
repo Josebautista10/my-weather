@@ -1,12 +1,10 @@
 import type { NextPage } from 'next'
-import { useEffect, useState } from 'react'
 import Footer from './components/Footer'
-import Form from './components/Form'
 import FormContainer from './components/Container'
 import Nav from './components/Nav'
 
-const Home: NextPage = () => {
-  return (
+// eslint-disable-next-line react/function-component-definition
+const Home: NextPage = () => (
     <>
       <Nav />
       <FormContainer />
@@ -14,6 +12,5 @@ const Home: NextPage = () => {
       <Footer />
     </>
   )
-}
 
 export default Home
